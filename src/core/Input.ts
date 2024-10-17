@@ -8,7 +8,6 @@ export class Input {
             if (githubToken == undefined) {
                 core.error("No GITHUB_TOKEN found. pass `GITHUB_TOKEN` as env!")
                 process.exit(1);
-                return ''
             }
             return githubToken;
         }

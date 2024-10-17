@@ -4,7 +4,7 @@ import {Input} from "./core/Input";
 
 async function run() {
     const allReleases = await Github.getInstance().listReleases();
-    core.info(`Releases list data: \n${allReleases}`)
+    core.debug(`Releases list data: \n${allReleases}`)
     if (allReleases.length <= 0) {
         core.info(`No releases found, action finished!`);
         return;
@@ -27,7 +27,6 @@ async function run() {
 
     if (Input.PreRelease.DROP) {
         const prereleases = allReleases.filter((release: any) => {
-            core.info(`release(${release.id}) prerelease(${release.prerelease})`);
             return release.prerelease
         });
         if (prereleases.length > 0) {
